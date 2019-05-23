@@ -27,8 +27,9 @@ public class RunRepository {
         InvokeRequest invokeRequest = new InvokeRequest().withFunctionName(lambdaName)
                 .withPayload(objectMapper.writeValueAsString(request));
         InvokeResult invokeResult = lambdaClient.invoke(invokeRequest);
+        // invokeResult.getStatusCode() --> Determines whether the lambda invoked or connection
+        // problem
         return objectMapper.readValue(new String(invokeResult.getPayload().array()),
                 APIGatewayProxyResponseEvent.class);
-
     }
 }

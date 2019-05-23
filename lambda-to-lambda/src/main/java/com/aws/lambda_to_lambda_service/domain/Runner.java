@@ -57,5 +57,9 @@ public class Runner {
         this.emergencyContactNumber = emergencyContactNumber;
     }
     
+    public Runner() {
+        
+    }
+    
     
 }
